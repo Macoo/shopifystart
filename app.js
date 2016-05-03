@@ -5,15 +5,15 @@ var bodyParser = require('body-parser'),
     routes = require('./routes'),
     shopifyAuth = require('./routes/shopify_auth'),
     path = require('path'),
-    nconf = require('nconf'),
+    //nconf = require('nconf'),
     morgan = require('morgan');
 
 //load settings from environment config
-nconf.argv().env().file({
-    file: (process.env.NODE_ENV || 'dev') + '-settings.json'
-});
-console.log("testing nconf: " + nconf.get('oauth:redirect_url'));
-exports.nconf = nconf;
+//nconf.argv().env().file({
+//    file: (process.env.NODE_ENV || 'dev') + '-settings.json'
+//});
+//console.log("testing nconf: " + nconf.get('oauth:redirect_url'));
+//exports.nconf = nconf;
 
 var app = express();
 

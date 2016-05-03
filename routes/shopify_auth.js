@@ -39,12 +39,12 @@ exports.AppAuth = function() {
      * the scope being requested
      */
     this.getCode = function(req, res) {
-        console.log(app.nconf);
-        console.log(app.nconf.get('oauth:redirect_url'));
+        console.log(process.env.SHOPIFY_REDIRECT_URL);
+        console.log(process.env.SHOPIFY_SCOPE);
 
         var redirectUrl = self.OAuth(req.session.shopUrl).getAuthorizeUrl({
-            redirect_uri : app.nconf.get('oauth:redirect_url'),
-            scope: app.nconf.get('oauth:scope')
+            redirect_uri : process.env.SHOPIFY_REDIRECT_URL,
+            scope: process.env.SHOPIFY_SCOPE
         });
         res.redirect(redirectUrl);
     };
@@ -75,8 +75,8 @@ exports.AppAuth = function() {
 
     this.OAuth = function(shopUrl) {
         return new OAuth(
-            app.nconf.get('oauth:api_key'),
-            app.nconf.get('oauth:client_secret'),
+            process.env.SHOPIFY_API_KEY,
+            process.env.SHOPIFY_CLIENT_SECRET,
             shopUrl,
             "/admin/oauth/authorize",
             "/admin/oauth/access_token");

@@ -31,7 +31,7 @@ exports.index = function(req, res){
 exports.renderApp = function(req, res){
     res.render('app_view', {
         title: 'My App Title',
-        apiKey: app.nconf.get('oauth:api_key'),
+        apiKey: process.env.SHOPIFY_API_KEY,
         shopUrl: req.session.shopUrl
     });
 };
