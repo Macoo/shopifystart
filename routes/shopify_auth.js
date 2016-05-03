@@ -39,11 +39,13 @@ exports.AppAuth = function() {
      * the scope being requested
      */
     this.getCode = function(req, res) {
+        console.log(app.nconf);
+        console.log(app.nconf.get('oauth:redirect_url'));
+
         var redirectUrl = self.OAuth(req.session.shopUrl).getAuthorizeUrl({
             redirect_uri : app.nconf.get('oauth:redirect_url'),
             scope: app.nconf.get('oauth:scope')
         });
-        process.stdout.write(redirectUrl);
         res.redirect(redirectUrl);
     };
 
