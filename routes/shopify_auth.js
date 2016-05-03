@@ -28,6 +28,7 @@ exports.AppAuth = function() {
      * See http://docs.shopify.com/embedded-app-sdk/getting-started#oauth
      */
     this.escapeIframe = function(req, res) {
+        console.log('in escape iframe');
         res.render('escape_iframe');
     };
 
