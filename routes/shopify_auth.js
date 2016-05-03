@@ -12,7 +12,6 @@ exports.AppAuth = function() {
      */
     this.initAuth = function(req, res){
         if (!req.session.oauth_access_token) {
-            console.log("in initAuth");
             res.redirect("/escape_iframe");
         } else {
             res.redirect("/render_app");

@@ -30,8 +30,8 @@ app.use(cookieSession({
 //statically serve from the 'public' folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-//use jade templating engine for view rendering
-app.set('view engine', 'jade');
+//use pug templating engine for view rendering
+app.set('view engine', 'pug');
 
 //use the environment's port if specified
 app.set('port', process.env.PORT || 3000);
