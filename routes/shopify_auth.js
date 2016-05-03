@@ -43,7 +43,7 @@ exports.AppAuth = function() {
             redirect_uri : app.nconf.get('oauth:redirect_url'),
             scope: app.nconf.get('oauth:scope')
         });
-        alert(redirectUrl);
+        process.stdout.write(redirectUrl);
         res.redirect(redirectUrl);
     };
 
