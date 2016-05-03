@@ -12,6 +12,7 @@ var bodyParser = require('body-parser'),
 nconf.argv().env().file({
     file: (process.env.NODE_ENV || 'dev') + '-settings.json'
 });
+console.log("testing nconf: " + nconf.get('oauth:redirect_url'));
 exports.nconf = nconf;
 
 var app = express();
